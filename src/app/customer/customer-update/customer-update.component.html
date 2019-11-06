@@ -1,0 +1,132 @@
+<div class="center card">
+    <div class="header-table">
+        <img routerLink="/lista" src="assets/images/btn-back.svg" alt="" class="btn-back">
+        <div class="title-table">
+            <label for="" class="text-header-table">{{ customer.name? customer.name : 'Informações do paciente' }}</label>
+        </div>
+        <button (click)="editInfo()" [ngClass]="{ 'pressed': isEditing }" class="btn btn-primary edit-button">{{ editButton }}</button>
+    </div>
+    <form [formGroup]="addCustomerForm" (ngSubmit)="updateCustomer(customer)">
+        <div class="form-group">
+            <div class="main-row">
+                <label for="name">Nome do Paciente
+                    <span class="required"> *</span>
+                </label>
+                <input [ngClass]="{ 'edit': !isEditing }" type="text" class="form-control" name="name" formControlName="name" value="{{ customer.name }}">
+            </div>
+            <div class="row">
+                <div>
+                    <label for="birth">Data de Nascimento
+                        <span class="required"> *</span>
+                    </label>
+                    <input [ngClass]="{ 'edit': !isEditing }" type="date" class="form-control" name="birth" formControlName="birth" #birth (keyup.enter)="calculateAge(birth.value)"
+                        value="{{ customer.birth | date: 'yyyy-MM-dd' }}">
+                </div>
+                <div>
+                    <label for="registerAge">Idade
+                        <span class="required"> *</span>
+                    </label>
+                    <input [ngClass]="{ 'edit': !isEditing }" type="number" class="form-control" name="registerAge" formControlName="registerAge"
+                        min=0 value="{{ customer.registerAge }}">
+                </div>
+            </div>
+            <div class="main-row">
+                <label for="sponsor">Nome do Responsável
+                    <span class="required"> *</span>
+                </label>
+                <input [ngClass]="{ 'edit': !isEditing }" type="text" class="form-control" name="sponsor" formControlName="sponsor" value="{{ customer.sponsor }}">
+            </div>
+            <div class="row">
+                <div>
+                    <label for="sponsorId">CPF do Responsável
+                        <span class="required"> *</span>
+                    </label>
+                    <input [ngClass]="{ 'edit': !isEditing }" type="number" class="form-control" name="sponsorId" formControlName="sponsorId"
+                        value="{{ customer.sponsorId }}">
+                </div>
+                <div>
+                    <label for="relationship">Parentesco
+                        <span class="required"> *</span>
+                    </label>
+                    <input [ngClass]="{ 'edit': !isEditing }" type="text" class="form-control" name="relationship" formControlName="relationship"
+                        value="{{ customer.relationship }}">
+                </div>
+            </div>
+            <div class="main-row">
+                <label for="address">Endereço
+                    <span class="required"> *</span>
+                </label>
+                <input [ngClass]="{ 'edit': !isEditing }" type="text" class="form-control" name="address" formControlName="address" value="{{ customer.address }}">
+            </div>
+            <div class="row">
+                <div>
+                    <label for="addressNumber">Numero
+                        <span class="required"> *</span>
+                    </label>
+                    <input [ngClass]="{ 'edit': !isEditing }" type="number" class="form-control" name="addressNumber" formControlName="addressNumber"
+                        min=0 value="{{ customer.addressNumber }}">
+                </div>
+                <div>
+                    <label for="addressExtra">Complemento</label>
+                    <input [ngClass]="{ 'edit': !isEditing }" type="text" class="form-control" name="addressExtra" formControlName="addressExtra"
+                        value="{{ customer.addressExtra }}">
+                </div>
+                <div>
+                    <label for="addressBlock">Bairro
+                        <span class="required"> *</span>
+                    </label>
+                    <input [ngClass]="{ 'edit': !isEditing }" type="text" class="form-control" name="addressBlock" formControlName="addressBlock"
+                        value="{{ customer.addressBlock }}">
+                </div>
+                <div>
+                    <label for="zipCode">CEP
+                        <span class="required"> *</span>
+                    </label>
+                    <input [ngClass]="{ 'edit': !isEditing }" type="type" class="form-control" name="zipCode" formControlName="zipCode" value="{{ customer.zipCode }}">
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label for="mainContact">Contato 1
+                        <span class="required"> *</span>
+                    </label>
+                    <input [ngClass]="{ 'edit': !isEditing }" type="number" class="form-control" name="mainContact" formControlName="mainContact"
+                        min=0 value="{{ customer.mainContact }}">
+                </div>
+                <div>
+                    <label for="extraContact">Contato 2</label>
+                    <input [ngClass]="{ 'edit': !isEditing }" type="number" class="form-control" name="extraContact" formControlName="extraContact"
+                        min=0 value="{{ customer.extraContact }}">
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label for="paymentType">Tipo de Pagamento
+                        <span class="required"> *</span>
+                    </label>
+                    <input [ngClass]="{ 'edit': !isEditing }" type="text" class="form-control" name="paymentType" formControlName="paymentType"
+                        value="{{ customer.paymentType }}">
+                </div>
+                <div>
+                    <label for="paymentAmount">Valor do Pagamento
+                        <span class="required"> *</span>
+                    </label>
+                    <input [ngClass]="{ 'edit': !isEditing }" type="number" class="form-control" name="paymentAmount" formControlName="paymentAmount"
+                        value="{{ customer.paymentAmount }}">
+                </div>
+                <div>
+                    <label for="covenant">Convênio
+                        <span class="required"> *</span>
+                    </label>
+                    <input [ngClass]="{ 'edit': !isEditing }" type="text" class="form-control" name="covenant" formControlName="covenant" value="{{ customer.covenant }}">
+                </div>
+            </div>
+            <div class="main-row">
+                <label for="notes">Observações</label>
+                <textarea [ngClass]="{ 'edit': !isEditing }" type="text" class="form-control" name="notes" formControlName="notes" style="min-width: 800px; min-height: 100px;"
+                    class="form-control" rows="3" id="notes" value="{{ customer.notes }}"></textarea>
+            </div>
+        </div>
+        <button *ngIf="isEditing" type="submit" class="btn btn-primary mb-2 register">Atualizar</button>
+    </form>
+</div>

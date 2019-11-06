@@ -1,0 +1,97 @@
+@import '~assets/scss/mixins.scss';
+
+.card {
+    display: flex;
+    margin-top: 20px;
+    max-width: 1080px;
+    max-height: 1080px;
+    min-width: 1080px;
+    min-height: 540px;
+    -webkit-box-shadow: 0 5px 10px 0 rgba(44,76,102,0.2);
+    -moz-box-shadow: 0 5px 10px 0 rgba(44,76,102,0.2);
+    box-shadow: 0 5px 10px 0 rgba(44,76,102,0.2);
+    border-radius: 20px;
+    background: white;
+}
+
+.center {
+    @include flex-display(flex);
+    flex-direction: column;
+}
+
+.header-table {
+    display: flex;
+    @include flex-direction(row);
+    align-items: center;
+    margin-top: 1%;
+    height: 60px;
+    width: 1080px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    > img {
+        @include margin-start(20px);
+    }
+
+    > .title-table {
+        flex-grow: 2;
+        @include margin-start(75px);
+
+        > label {
+            font-size: 18px;
+            color: #2c4c66;
+            margin-top: 8px;
+        }
+
+        > img {
+            @include margin-end(20px);
+            margin-bottom: 5px;
+            width: 26px;
+            height: auto;
+        }
+    }
+
+    > .btn-download {
+        flex-grow: 2;
+    }
+
+    > .btn-back {
+        height: 20px;
+        width: 5%;
+    }
+}
+
+.main-row {
+    text-align: center;
+    margin: 4%;
+    margin-top: 1%;
+}
+
+.row {
+    @include flex-display(flex);
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    margin: 2%;
+    margin-top: 1.5%;
+    > div {
+        margin-left: 6%;
+    }
+}
+
+.register {
+    @include flex-display(flex);
+    padding: 2% 5% 2%;
+    margin-bottom: 5%;
+    margin-left: 45%;
+}
+
+img {
+    margin: 2.5%;
+    height: 30px;
+    width: 40px;
+}
+
+.required {
+    color: red;
+}

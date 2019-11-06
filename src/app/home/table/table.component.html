@@ -1,0 +1,56 @@
+<div class="center card">
+
+  <div class="header-table">
+    <img routerLink="/home" src="assets/images/btn-back.svg" alt="" class="btn-back">
+    <div class="title-table">
+      <label for="" class="text-header-table">Lista de pacientes</label>
+      <input class="search-box form-control" type="text" [(ngModel)]="search" placeholder="Procurar nome" id="search">
+      <img routerLink="/cadastro" src="assets/images/person-blue.svg">
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <div class="properties">
+          <label for="" class="label-name">Nome</label>
+          <label for="" class="label-mod">Data de nascimento</label>
+          <label for="" class="label-size">Idade</label>
+          <label for="" class="label-type">Telefones</label>
+          <label for="" class="empty-label">Ações</label>
+        </div>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers | searchPipe: 'name': search">
+        <div class="column">
+          <div class="row-size">
+            <labeL class="file-name">{{ customer.name }}</labeL>
+            <labeL class="file-date">{{ customer.birth | date: 'dd-MM-yyyy'}}</labeL>
+            <labeL class="file-size">{{ customer.registerAge }}</labeL>
+            <select class="btn btn-custom file-type minimal">
+              <option [value]="customer.mainContact">{{ customer.mainContact }}</option>
+              <option [value]="customer.extraContact">{{ customer?.extraContact }}</option>
+            </select>
+            <div class="function-buttons btn-view-details">
+              <img (click)="updateCustomer(customer)" class="info" src="assets/images/info.svg" class="btn-view-details">
+              <img (click)="deleteDialog.open()" class="delete" src="assets/images/delete.svg" class="btn-view-details">
+              <modal #deleteDialog submitButtonLabel="SIM" (onSubmit)="deleteCustomer(customer)">
+                <modal-header class="modal-alert">
+                  <img src="assets/images/alert.svg">
+                </modal-header>
+                <modal-content class="modal-alert">
+                  <div style="color: #000; text-align: center;">
+                    <h3>Deseja excluir o paciente</h3>
+                    <h2>{{ customer.name }}?</h2>
+                  </div>
+                </modal-content>
+              </modal>
+            </div>
+          </div>
+          <div class="separator"></div>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>

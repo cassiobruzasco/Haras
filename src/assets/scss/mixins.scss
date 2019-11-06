@@ -1,0 +1,230 @@
+@mixin box-sizing($type:border-box) {
+  -webkit-box-sizing: $type;
+  -moz-box-sizing: $type;
+  box-sizing: $type;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin border-radiuses($topright: 0, $bottomright: 0, $bottomleft: 0, $topleft: 0) {
+  -webkit-border-top-right-radius: $topright;
+  -webkit-border-bottom-right-radius: $bottomright;
+  -webkit-border-bottom-left-radius: $bottomleft;
+  -webkit-border-top-left-radius: $topleft;
+  -moz-border-radius-topright: $topright;
+  -moz-border-radius-bottomright: $bottomright;
+  -moz-border-radius-bottomleft: $bottomleft;
+  -moz-border-radius-topleft: $topleft;
+  border-top-right-radius: $topright;
+  border-bottom-right-radius: $bottomright;
+  border-bottom-left-radius: $bottomleft;
+  border-top-left-radius: $topleft;
+}
+
+@mixin box-shadow($string) {
+  -webkit-box-shadow: $string;
+  -moz-box-shadow: $string;
+  box-shadow: $string;
+}
+
+@mixin inset-shadow($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+  -webkit-box-shadow: inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  -moz-box-shadow: inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  box-shadow: inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+}
+
+@mixin opacity($opacity:0.5) {
+  -webkit-opacity: $opacity;
+  -moz-opacity: $opacity;
+  opacity: $opacity;
+}
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin user-select($string) {
+  -webkit-touch-callout: $string;
+  -webkit-user-select: $string;
+  -khtml-user-select: $string;
+  -moz-user-select: $string;
+  -ms-user-select: $string;
+  user-select: $string;
+}
+
+@mixin animation($name, $delay: 0, $duration: 300ms, $ease: ease) {
+  -webkit-animation: $name $duration $delay $ease;
+  -moz-animation: $name $duration $delay $ease;
+  -ms-animation: $name $duration $delay $ease;
+  animation: $name $duration $delay $ease;
+}
+
+@mixin transform($string) {
+  -webkit-transform: $string;
+  -moz-transform: $string;
+  -ms-transform: $string;
+  -o-transform: $string;
+  transform: $string;
+}
+
+@mixin scale($factor) {
+  -webkit-transform: scale($factor);
+  -moz-transform: scale($factor);
+  -ms-transform: scale($factor);
+  -o-transform: scale($factor);
+  transform: scale($factor);
+}
+
+@mixin rotate($deg) {
+  -webkit-transform: rotate($deg);
+  -moz-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  -o-transform: rotate($deg);
+  transform: rotate($deg);
+}
+
+@mixin skew($deg, $deg2) {
+  -webkit-transform: skew($deg, $deg2);
+  -moz-transform: skew($deg, $deg2);
+  -ms-transform: skew($deg, $deg2);
+  -o-transform: skew($deg, $deg2);
+  transform: skew($deg, $deg2);
+}
+
+@mixin translate($x, $y:0) {
+  -webkit-transform: translate($x, $y);
+  -moz-transform: translate($x, $y);
+  -ms-transform: translate($x, $y);
+  -o-transform: translate($x, $y);
+  transform: translate($x, $y);
+}
+
+@mixin translate3d($x, $y:0, $z: 0) {
+  -webkit-transform: translate3d($x, $y, $z);
+  -moz-transform: translate3d($x, $y, $z);
+  -ms-transform: translate3d($x, $y, $z);
+  -o-transform: translate3d($x, $y, $z);
+  transform: translate3d($x, $y, $z);
+}
+
+@mixin perspective($value:1000) {
+  -webkit-perspective: $value;
+  -moz-perspective: $value;
+  -ms-perspective: $value;
+  perspective: $value;
+}
+
+@mixin transform-origin($x: center, $y: center) {
+  -webkit-transform-origin: $x $y;
+  -moz-transform-origin: $x $y;
+  -ms-transform-origin: $x $y;
+  -o-transform-origin: $x $y;
+  transform-origin: $x $y;
+}
+
+@mixin truncate($width) {
+  width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin placeholder($color) {
+  &::-webkit-input-placeholder {
+      color: $color
+  }
+  &::-moz-placeholder {
+      color: $color
+  }
+  &:-ms-input-placeholder {
+      color: $color
+  }
+}
+
+@mixin appearance($value) {
+  -webkit-appearance: $value;
+  -moz-appearance: $value;
+  appearance: $value;
+}
+
+@mixin disabled {
+  @include opacity(0.6);
+  cursor: not-allowed !important;
+}
+
+@mixin float-left {
+  float: left;
+}
+
+@mixin float-right {
+  float: right;
+}
+
+@mixin margin-end($margin) {
+  -webkit-margin-end: $margin;
+  -moz-margin-end: $margin;
+  margin-end: $margin;
+}
+
+@mixin margin-start($margin) {
+  -webkit-margin-start: $margin;
+  -moz-margin-start: $margin;
+  margin-start: $margin;
+}
+
+@mixin border-start($border) {
+  -webkit-border-start: $border;
+  -moz-border-start: $border;
+  border-start: $border;
+}
+
+@mixin padding-start($padding) {
+  -webkit-padding-start: $padding;
+  -moz-padding-start: $padding;
+  padding-start: $padding;
+}
+
+@mixin padding-end($padding) {
+  -webkit-padding-end: $padding;
+  -moz-padding-end: $padding;
+  padding-end: $padding;
+}
+
+@mixin flex-direction($direction:row) {
+  -webkit-flex-direction: $direction;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
+}
+
+@mixin flex-grow($grow:0) {
+  -webkit-flex-grow: $grow;
+  -ms-flex-grow: $grow;
+  flex-grow: $grow;
+}
+
+@mixin flex($columns:initial) {
+  -webkit-flex: $columns;
+  -ms-flex: $columns;
+  flex: $columns;
+}
+
+@mixin justify-content($justify:flex-start) {
+  -webkit-justify-content: $justify;
+  -ms-justify-content: $justify;
+  justify-content: $justify;
+}
+
+@mixin flex-display($display:flex) {
+  display: unquote("-webkit-#{$display}");
+  display: unquote("-ms-#{$display}box");
+  display: unquote("-ms-#{$display}");
+  display: $display;
+}

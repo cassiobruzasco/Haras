@@ -1,0 +1,18 @@
+@import '~assets/scss/mixins.scss';
+
+.all {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.bg {
+  background-image: url(~assets/images/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.center {
+  @include flex-display(flex);
+  flex-direction: column;
+  align-items: center;
+}

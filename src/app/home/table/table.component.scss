@@ -1,0 +1,382 @@
+@import '~assets/scss/mixins.scss';
+
+.card {
+    display: flex;
+    margin-top: 20px;
+    max-width: 1080px;
+    max-height: 1080px;
+    min-width: 1080px;
+    min-height: 540px;
+    -webkit-box-shadow: 0 5px 10px 0 rgba(44,76,102,0.2);
+    -moz-box-shadow: 0 5px 10px 0 rgba(44,76,102,0.2);
+    box-shadow: 0 5px 10px 0 rgba(44,76,102,0.2);
+    border-radius: 20px;
+    background: white;
+}
+
+.highlighted-background {
+  background-color: #fcf8d4;
+
+}
+
+.center {
+    @include flex-display(flex);
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-download {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  height: 30px;
+  width: 224px;
+  max-width: 224px;
+  color: white;
+  border: none;
+  font-size: 10pt;
+  letter-spacing: 1px;
+  margin-right: 15px;
+
+  > label {
+      margin-top: 5px;
+  }
+}
+
+.title-table {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  > .undo {
+    @include margin-start(130px);
+  }
+
+  > btn {
+    justify-content: flex-end;
+  }
+}
+
+.undo {
+  background-color: #9aa1a5;
+  color: #fff !important;
+}
+
+.save {
+  background-color: #1d935d;
+  color: #fff !important;
+
+}
+
+.header-table {
+    display: flex;
+    @include flex-direction(row);
+    align-items: center;
+    height: 60px;
+    width: 1080px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    > img {
+        @include margin-start(20px);
+    }
+
+    > .title-table {
+        flex-grow: 2;
+        @include margin-start(75px);
+
+        > label {
+            font-size: 18px;
+            color: #2c4c66;
+            margin-top: 8px;
+        }
+
+        > img {
+            @include margin-end(20px);
+            margin-bottom: 5px;
+            width: 26px;
+            height: auto;
+        }
+    }
+
+    > .btn-download {
+        flex-grow: 2;
+    }
+
+    > .btn-back {
+        height: 20px;
+        width: 5%;
+    }
+}
+
+// PROPRIEDADES DA TABELA
+
+.properties {
+    display: flex;
+    @include flex-direction(row);
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background: #eceff2;
+    color: #2c4c66;
+
+    > strong {
+        font-weight: bold;
+    }
+
+    > .label-name {
+        @include margin-start(40px);
+        @include flex(0 30%);
+    }
+
+    > .label-mod {
+        @include flex(0 20%);
+    }
+
+    > .label-size {
+        @include flex(0 10%);
+    }
+
+    > .label-type {
+        @include flex(0 25%);
+    }
+
+    > .empty-label {
+        @include flex(0 15%);
+    }
+}
+
+.row-size {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    align-items: center;
+    @include margin-start(40px);
+    @include margin-end(40px);
+
+    > .file-name {
+        @include flex(0 33%);
+    }
+
+    > .file-date {
+        @include flex(0 21%);
+    }
+
+    > .file-size {
+        @include flex(0 7%);
+    }
+
+    > .file-type {
+        @include flex(0 18%);
+    }
+
+    > .btn-view-details {
+        margin-left: 5%;
+    }
+
+}
+
+tbody > tr {
+    border-color: #eceff2;
+    color: #2c4c66;
+    display: flex;
+
+    > .row-size {
+        flex-grow: 1;
+    }
+}
+
+.btn-custom {
+    border-radius: 30px;
+    width: 200px;
+    background-color: #fff;
+    border-color: #eceff2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    > .space {
+        flex: 1 1 auto;
+    }
+}
+
+.btn {
+    color: #2c4c66;
+    font-weight: bold;
+}
+
+.btn-result {
+    display: flex;
+    @include margin-end(20px);
+    margin-top: 20px;
+    border-radius: 30px;
+    height: 60px;
+}
+
+.btn-view-details {
+    font-size: 9pt;
+    margin-top: 8px;
+    color: #96a6b2;
+}
+
+.separator {
+    @include margin-start(18px);
+    @include margin-end(18px);
+    height: 2px;
+    background-color: #f2f4f6;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+select {
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select.minimal {
+    background-image: linear-gradient(45deg, transparent 50%, #2c4c66 50%), linear-gradient(135deg, #2c4c66 50%, transparent 50%);
+    background-position: calc(100% - 19px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) .5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
+}
+
+.action-background {
+  background: red;
+}
+
+
+.btn-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  height: 35px;
+  width: 220px;
+  max-width: 224px;
+  background-color: #2c4c66;
+  color: white;
+  border: none;
+  font-size: 10pt;
+  letter-spacing: 1px;
+  margin-right: 15px;
+  justify-content: space-between;
+
+  > label {
+      margin-top: 5px;
+  }
+
+  > img {
+    height: 25px;
+    @include margin-end(6px);
+  }
+}
+
+.function-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 1%;
+    > img {
+        margin-left: 25%;
+        margin-bottom: 10%;
+        height: 40px;
+    }
+}
+
+.modal-alert {
+    display: flex;
+    justify-content: center;
+    > img {
+        height: 80px;
+    }
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    > label {
+        @include flex(0 25%);
+        margin-right: 10px;
+    }
+    > input {
+        @include flex(0 50%);
+        margin-right: 20px;
+        padding-left: 10px;
+        border-radius: 8px;
+    }
+    > textarea {
+        margin-right: 20px;
+        padding-left: 10px;
+        border-radius: 8px;
+        width: 100%;
+    }
+}
+
+.modal-row-main {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    > label {
+        @include flex(0 15%);
+        margin-right: 10px;
+    }
+    > input {
+        @include flex(0 85%);
+        margin-right: 20px;
+        padding-left: 10px;
+        border-radius: 8px;
+    }
+    > textarea {
+        margin-right: 20px;
+        padding-left: 10px;
+        border-radius: 8px;
+        width: 100%;
+    }
+}
+
+.address-extra-size {
+    font-size: 8pt;
+}
+
+.edit-button {
+    width: 100px;
+    max-width: 100px;
+    margin-right: 66%;
+    color: #fff;
+    font-weight: 400;
+}
+
+.pressed {
+    background: grey;
+}
+
+.search-box {
+    border-radius: 15px;
+    max-width: 250px;
+}

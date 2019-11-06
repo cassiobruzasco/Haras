@@ -1,0 +1,102 @@
+<div class="center card">
+    <div class="header-table">
+        <img routerLink="/home" src="assets/images/btn-back.svg" alt="" class="btn-back">
+        <div class="title-table">
+            <label for="" class="text-header-table">Cadastro de pacientes</label>
+        </div>
+    </div>
+    <form [formGroup]="addCustomerForm" (ngSubmit)="addCustomer()">
+        <div class="form-group">
+            <div class="main-row">
+                <label for="name">Nome do Paciente<span class="required"> *</span></label>
+                <input type="text" class="form-control" name="name" formControlName="name">
+            </div>
+            <div class="row">
+                <div>
+                    <label for="birth">Data de Nascimento<span class="required"> *</span></label>
+                    <input type="date" class="form-control" name="birth" formControlName="birth" #birth (keyup.enter)="calculateAge(birth.value)">
+                </div>
+                <div>
+                    <label for="registerAge">Idade<span class="required"> *</span></label>
+                    <input type="number" class="form-control" name="registerAge" formControlName="registerAge" min=0>
+                </div>
+                <div>
+                    <label for="currentAge">Calculo idade atual</label>
+                    <input disabled type="number" class="form-control" name="currentAge" formControlName="currentAge" min=0 value="{{ currentAgeForCalculation }}">
+                </div>
+                <img (click)="calculateAge(birth.value)" src="assets/images/refresh.svg" class="btn btn-primary">
+            </div>
+            <div class="main-row">
+                <label for="sponsor">Nome do Responsável<span class="required"> *</span></label>
+                <input type="text" class="form-control" name="sponsor" formControlName="sponsor">
+            </div>
+            <div class="row">
+                <div>
+                    <label for="sponsorId">CPF do Responsável<span class="required"> *</span></label>
+                    <input type="number" class="form-control" name="sponsorId" formControlName="sponsorId">
+                </div>
+                <div>
+                    <label for="relationship">Parentesco<span class="required"> *</span></label>
+                    <input type="text" class="form-control" name="relationship" formControlName="relationship">
+                </div>
+            </div>
+            <div class="main-row">
+                <label for="address">Endereço<span class="required"> *</span></label>
+                <input type="text" class="form-control" name="address" formControlName="address">
+            </div>
+            <div class="row">
+                <div>
+                    <label for="addressNumber">Numero<span class="required"> *</span></label>
+                    <input type="number" class="form-control" name="addressNumber" formControlName="addressNumber" min=0>
+                </div>
+                <div>
+                    <label for="addressExtra">Complemento</label>
+                    <input type="text" class="form-control" name="addressExtra" formControlName="addressExtra">
+                </div>
+                <div>
+                    <label for="addressBlock">Bairro<span class="required"> *</span></label>
+                    <input type="text" class="form-control" name="addressBlock" formControlName="addressBlock">
+                </div>
+                <div>
+                    <label for="zipCode">CEP<span class="required"> *</span></label>
+                    <input type="number" class="form-control" name="zipCode" formControlName="zipCode">
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label for="mainContact">Contato 1<span class="required"> *</span></label>
+                    <input type="number" class="form-control" name="mainContact" formControlName="mainContact" min=0>
+                </div>
+                <div>
+                    <label for="extraContact">Contato 2</label>
+                    <input type="number" class="form-control" name="extraContact" formControlName="extraContact" min=0>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label for="paymentType">Tipo de Pagamento<span class="required"> *</span></label>
+                    <input type="text" class="form-control" name="paymentType" formControlName="paymentType">
+                </div>
+                <div>
+                    <label for="paymentAmount">Valor do Pagamento<span class="required"> *</span></label>
+                    <input type="number" class="form-control" name="paymentAmount" formControlName="paymentAmount">
+                </div>
+                <div>
+                    <label for="covenant">Convênio<span class="required"> *</span></label>
+                    <input type="text" class="form-control" name="covenant" formControlName="covenant">
+                </div>
+            </div>
+            <div class="main-row">
+                <label for="notes">Observações</label>
+                <textarea type="text" class="form-control" name="notes" formControlName="notes" style="min-width: 800px; min-height: 100px;"
+                    class="form-control" rows="3" id="notes"></textarea>
+            </div>
+        </div>
+        <div *ngIf="!isValid" class="alert alert-warning" role="alert" style="text-align: center;">
+            <strong>Atenção!</strong> Preencha todos os campos com
+            <strong style="color: red;">*</strong>
+            <p>Campo vazio: {{ emptyField }}</p>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 register">Cadastrar</button>
+    </form>
+</div>
